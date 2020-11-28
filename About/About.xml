@@ -6,7 +6,7 @@
 	<supportedVersions>
 		<li>1.2</li>
 	</supportedVersions>
-	<packageId>drzhivago.docburn+</packageId>
+	<packageId>drzhivago.docburn</packageId>
 	<description>
 Burn everything.
     
