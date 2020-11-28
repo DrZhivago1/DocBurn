@@ -1,0 +1,63 @@
+<Patch>
+    <!--This file will make all things and stuff flammable.-->
+
+    <!--==========
+    VANILLA
+    ==========-->
+    <Operation Class="PatchOperationSequence">
+        <!--<success>Always</success>-->
+        <operations>
+            <!--Add HitPoints-->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/*//statBases/MaxHitPoints</xpath>
+                <value>
+                    <MaxHitPoints>750</MaxHitPoints>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/*//statBases[not(MaxHitPoints)]</xpath>
+                <value>
+                    <MaxHitPoints>750</MaxHitPoints>
+                </value>
+            </li>
+            <!--StatBases-->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/*//statBases/Flammability</xpath>
+                <value>
+                    <Flammability>2</Flammability>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/*[not(@Name="BurnedFloorBase")]//statBases[not(Flammability)]</xpath>
+                <value>
+                    <Flammability>2</Flammability>
+                </value>
+            </li>
+            <!--StuffProps-->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/*//stuffProps/statFactors/Flammability</xpath>
+                <value>
+                    <Flammability>2</Flammability>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/*//stuffProps/statFactors[not(Flammability)]</xpath>
+                <value>
+                    <Flammability>2</Flammability>
+                </value>
+            </li>
+            <!--Burned Terrain-->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[not(burnedDef)]</xpath>
+                <value>
+                    <burnedDef>BurnedCarpet</burnedDef>
+                </value>
+            </li>
+            <!--Allow HitPoint use-->
+            <li Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[@ParentName="ResourceBase"]/useHitPoints</xpath>
+            </li>
+        </operations>
+    </Operation>
+
+</Patch>
