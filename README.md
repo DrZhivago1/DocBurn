@@ -1,0 +1,2 @@
+# DocBurn-
+Burn it all
